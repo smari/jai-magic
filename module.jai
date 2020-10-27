@@ -46,16 +46,16 @@ MAGIC_VERSION :: 517; // This implementation
 
 magic_t :: *magic_set;
 
-magic_open :: (flags: s32 = MAGIC_NONE) -> magic_t          #foreign magic;
-magic_close :: (cookie: magic_t)                            #foreign magic;
-magic_error :: (cookie: magic_t) -> *u8                     #foreign magic;
-magic_errno :: (cookie: magic_t) -> u32                     #foreign magic;
-magic_file :: (cookie: magic_t, filename: *u8) -> *u8       #foreign magic;
-magic_buffer :: (cookie: magic_t, buffer: *void, length: size_t) -> *u8 #foreign magic;
-magic_setflags :: (cookie: magic_t, flags: s32) -> s32      #foreign magic;
-magic_check :: (cookie: magic_t, filename: *u8) -> s32      #foreign magic;
-magic_compile :: (cookie: magic_t, filename: *u8) -> s32     #foreign magic;
-magic_load :: (cookie: magic_t, filename: *u8) -> s32        #foreign magic;
+magic_open     :: (flags: s32 = MAGIC_NONE) -> magic_t    #foreign magic;
+magic_close    :: (cookie: magic_t)                       #foreign magic;
+magic_error    :: (cookie: magic_t) -> *u8                #foreign magic;
+magic_errno    :: (cookie: magic_t) -> u32                #foreign magic;
+magic_file     :: (cookie: magic_t, filename: *u8) -> *u8 #foreign magic;
+magic_buffer   :: (cookie: magic_t, buffer: *void, length: size_t) -> *u8 #foreign magic;
+magic_setflags :: (cookie: magic_t, flags: s32) -> s32    #foreign magic;
+magic_check    :: (cookie: magic_t, filename: *u8) -> s32 #foreign magic;
+magic_compile  :: (cookie: magic_t, filename: *u8) -> s32 #foreign magic;
+magic_load     :: (cookie: magic_t, filename: *u8) -> s32 #foreign magic;
 
 magic_file :: (cookie: magic_t, filename: string) -> string {
     return to_string(magic_file(cookie, to_c_string(filename)));
